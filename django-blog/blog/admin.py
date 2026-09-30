@@ -7,11 +7,16 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("title", "created_on")
+    list_filter = ("categories",)
+    search_fields = ("title", "body")
 
 
 class CommentAdmin(admin.ModelAdmin):
-    pass
+    # Solo el administrador puede eliminar comentarios (desde /admin/)
+    list_display = ("author", "post", "created_on")
+    list_filter = ("post",)
+    search_fields = ("author", "body")
 
 
 admin.site.register(Category, CategoryAdmin)
