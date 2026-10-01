@@ -1,52 +1,59 @@
 {% extends "base.html" %}
 
+{% block title %}{{ post.title }} | Nicolás Comin{% endblock title %}
+
 {% block page_title %}
-    <h2>{{ post.title }}</h2>
+    <h2 class="section-title mb-4">{{ post.title }}</h2>
 {% endblock page_title %}
 
 {% block page_content %}
-    <small>
-        {{ post.created_on.date }} | Categories:
-
+    <article class="custom-card post-card p-4 p-md-5 mb-5">
+        <p class="post-meta mb-4">
+            <i class="bi bi-calendar3 me-1" aria-hidden="true"></i>{{ post.created_on|date:"d/m/Y" }}
         {% for category in post.categories.all %}
-            <a href="{% url 'blog_category' category.name %}">
-                {{ category.name }}
-            </a>
+            <a class="badge-cat" href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
         {% endfor %}
-    </small>
-
-    <p>{{ post.body|linebreaks }}</p>
-
-    <h3>Leave a comment:</h3>
-
-    <form method="post">
-        {% csrf_token %}
-
-        <div>
-            {{ form.author }}
-        </div>
-
-        <div>
-            {{ form.body }}
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-            Submit
-        </button>
-    </form>
-
-    <h3>Comments:</h3>
-
-    {% for comment in comments %}
-        <p>
-            On {{ comment.created_on.date }}
-            <b>{{ comment.author }}</b> wrote:
         </p>
 
-        <p>
-            {{ comment.body|linebreaks }}
-        </p>
-    {% empty %}
-        <p>No comments yet.</p>
-    {% endfor %}
+        {% if post.image %}
+            <img class="post-media mb-4" src="{{ post.image.url }}" alt="Imagen de {{ post.title }}">
+        {% endif %}
+        {% if post.video %}
+            <video class="post-media mb-4" controls preload="metadata">
+                <source src="{{ post.video.url }}">
+                Tu navegador no puede reproducir este video.
+            </video>
+        {% endif %}
+        <div class="post-content">{{ post.body|linebreaks }}</div>
+    </article>
+
+    <section class="comments-section" aria-labelledby="comment-form-title">
+        <h3 id="comment-form-title" class="section-title mb-4">Dejá un comentario</h3>
+
+        <form method="post" class="custom-card p-4 mb-5">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label" for="{{ form.author.id_for_label }}">Nombre</label>
+                {{ form.author }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="{{ form.body.id_for_label }}">Comentario</label>
+                {{ form.body }}
+            </div>
+
+            <button type="submit" class="btn custom-btn">Publicar comentario</button>
+        </form>
+
+        <h3 class="section-title mb-4">Comentarios</h3>
+
+        {% for comment in comments %}
+            <article class="custom-card comment-card p-4 mb-3">
+                <p class="post-meta mb-2">{{ comment.created_on|date:"d/m/Y" }} · <strong>{{ comment.author }}</strong></p>
+                <div class="mb-0">{{ comment.body|linebreaks }}</div>
+            </article>
+        {% empty %}
+            <p class="empty-state">Todavía no hay comentarios.</p>
+        {% endfor %}
+    </section>
 {% endblock page_content %}
