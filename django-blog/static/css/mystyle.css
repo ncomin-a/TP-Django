@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+/* Tema Claro (Por defecto) */
+:root, [data-bs-theme="light"] {
+    --bg-color: #f8f9fa;
+    --text-color: #121212;
+    --text-muted: #555555;
+    --card-bg: #ffffff;
+    --card-border: #00cc52;
+    --primary-accent: #008033;
+    --nav-bg: rgba(240, 240, 240, 0.9);
+}
+
+/* Tema Oscuro */
+[data-bs-theme="dark"] {
+    --bg-color: #040d08;
+    --text-color: #ffffff;
+    --text-muted: #86a393;
+    --card-bg: rgba(10, 26, 17, 0.85);
+    --card-border: #00ff66;
+    --primary-accent: #00ff66;
+    --nav-bg: rgba(7, 20, 13, 0.9);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header & Hero */
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    text-shadow: 0 0 8px #00ff66, 0 0 20px #00ff66, 0 0 40px #00ff66;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    color: #00e5ff;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+}
+
+/* Navbar */
+.custom-navbar {
+    background-color: var(--nav-bg);
+    border: 1px solid var(--primary-accent);
+    border-radius: 16px;
+    padding: 0.8rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+}
+
+.custom-navbar .navbar-brand {
+    color: var(--primary-accent);
+    text-shadow: 0 0 8px var(--primary-accent);
+}
+
+.custom-navbar .nav-link {
+    color: var(--text-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: var(--primary-accent);
+    text-shadow: 0 0 10px var(--primary-accent);
+}
+
+/* Títulos de sección */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-accent);
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: var(--primary-accent);
+    box-shadow: var(--neon-green-glow);
+    border-radius: 2px;
+    margin-top: 6px;
+}
+
+/* Tarjetas y Contenedores */
+.custom-card, .project-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0, 255, 102, 0.35);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-accent);
+    box-shadow: var(--neon-green-glow);
+}
+
+.project-card {
+    overflow: hidden;
+}
+
+.project-card .card-body {
+    color: var(--text-color);
+}
+
+.project-card .card-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.card-img-wrapper {
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+/* Campos de Formulario */
+.form-control {
+    background-color: rgba(4, 13, 8, 0.85) !important;
+    border: 1px solid rgba(0, 255, 102, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary-accent) !important;
+    box-shadow: var(--neon-green-glow) !important;
+}
+
+.form-control::placeholder {
+    color: #4e6b5a !important;
+}
+
+/* Botones con Resplandor */
+.custom-btn {
+    background-color: transparent;
+    color: var(--primary-accent);
+    border: 2px solid var(--primary-accent);
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: var(--primary-accent);
+    color: #040d08;
+    box-shadow: var(--neon-green-glow);
+    transform: translateY(-2px);
+}
+
+/* Botón flotante de tema */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #07140d;
+    color: var(--primary-accent);
+    border: 2px solid var(--primary-accent);
+    box-shadow: var(--neon-green-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.15) rotate(15deg);
+    box-shadow: 0 0 25px #00ff66;
+}
+
+/* Efectos para íconos */
+.text-purple {
+    color: #a352ff;
+    text-shadow: 0 0 8px #a352ff;
+}
+
+.text-dark-icon {
+    color: #ffffff;
+}
+
+.skill-card i {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-card:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px currentColor);
+}

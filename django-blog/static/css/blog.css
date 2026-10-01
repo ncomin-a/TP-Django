@@ -1,0 +1,24 @@
+:root {
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --neon-green-glow: 0 0 15px rgba(0, 255, 102, 0.6);
+}
+
+.post-link { color: var(--primary-accent); text-decoration: none; }
+.post-link:hover { text-shadow: 0 0 10px var(--primary-accent); }
+
+.post-meta { color: var(--text-muted); }
+
+.badge-cat {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.6rem;
+    border: 1px solid var(--primary-accent);
+    border-radius: 20px;
+    color: var(--primary-accent);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+.badge-cat:hover { background: var(--primary-accent); color: #040d08; }
+
+.post-media { max-height: 480px; object-fit: cover; width: 100%; }
+article p, .custom-card p { color: var(--text-color); }
