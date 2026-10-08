@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog | Nicolás Comin{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock extra_css %}
+
+{% block page_header %}
+    <header class="text-center mb-5 hero-section">
+        <a class="site-title-link" href="{% url 'blog_index' %}">
+            <h1 class="display-3 fw-bold hero-title">Nicolás Comin</h1>
+        </a>
+        <p class="lead hero-subtitle mb-0">Alumno del Instituto Huergo &amp; Desarrollador Web</p>
+    </header>
+{% endblock page_header %}
+
+{% block navigation %}
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top mb-5" aria-label="Navegación principal">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="{% url 'blog_index' %}">
+                <i class="bi bi-journal-code me-2" aria-hidden="true"></i>Blog
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ PORTFOLIO_URL }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock navigation %}
+
+{% block content %}
+    {% block page_title %}{% endblock page_title %}
+    {% block page_content %}{% endblock page_content %}
+{% endblock content %}

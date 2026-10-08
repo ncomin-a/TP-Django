@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio - Nicolás Comin{% endblock title %}
+
+{% block vendor_css %}
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet">
+{% endblock vendor_css %}
+
+{% block page_header %}
+    <header class="text-center mb-5 hero-section">
+        <h1 class="display-3 fw-bold hero-title">Nicolás Comin</h1>
+        <p class="lead hero-subtitle mb-4">Alumno del Instituto Huergo &amp; Desarrollador Web</p>
+        <a href="{% url 'blog_index' %}" class="btn btn-primary custom-btn me-2">
+            <i class="bi bi-journal-text me-2"></i>Ir al blog
+        </a>
+        <a href="{{ PORTFOLIO_URL }}" class="btn btn-primary custom-btn" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-github me-2"></i>GitHub
+        </a>
+    </header>
+{% endblock page_header %}
+
+{% block navigation %}
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top mb-5" aria-label="Navegación principal">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="https://huergo.edu.ar/" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-mortarboard-fill me-2" aria-hidden="true"></i>Huergo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_index' %}">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock navigation %}
