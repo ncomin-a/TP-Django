@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nicolás Comin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+</head>
+<body>
+
+    <button class="theme-toggle-btn" type="button" onclick="cambiarModo()" aria-label="Cambiar tema" title="Cambiar tema">
+        <i class="bi bi-moon-stars-fill" id="theme-icon" aria-hidden="true"></i>
+    </button>
+
+    <main class="container py-5">
+        <header class="text-center mb-5 hero-section">
+            <h1 class="display-3 fw-bold hero-title">Nicolás Comin</h1>
+            <p class="lead hero-subtitle mb-4">Alumno del Instituto Huergo &amp; Desarrollador Web</p>
+            <a href="{% url 'blog_index' %}" class="btn btn-primary custom-btn me-2">
+                <i class="bi bi-journal-text me-2"></i>Ir al blog
+            </a>
+            <a href="{{ PORTFOLIO_URL }}" class="btn btn-primary custom-btn" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github me-2"></i>GitHub
+            </a>
+        </header>
+
+        <nav class="navbar navbar-expand-lg custom-navbar sticky-top mb-5">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="https://huergo.edu.ar/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-mortarboard-fill me-2"></i>Huergo
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog_index' %}">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section id="sobre-mi" class="mb-5">
+            <h2 class="section-title mb-4">Sobre mí</h2>
+            <div class="custom-card p-4">
+                <blockquote class="blockquote mb-0">
+                    <p class="m-0">
+                        Nicolás Comin es un estudiante del Instituto Huergo, apasionado por la tecnología y el desarrollo web. En su portafolio podrás encontrar información sobre sus proyectos, habilidades y formas de contacto. ¡Explora y descubre más sobre él!
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="habilidades" class="mb-5">
+            <h2 class="section-title mb-4">Habilidades Técnicas</h2>
+            <div class="row row-cols-2 row-cols-md-4 g-3 text-center">
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-filetype-html display-5 text-danger mb-2"></i>
+                        <h6 class="fw-bold mb-0">HTML5</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-filetype-css display-5 text-primary mb-2"></i>
+                        <h6 class="fw-bold mb-0">CSS3</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="devicon-photoshop-plain colored display-5 mb-2"></i>
+                        <h6 class="fw-bold mb-0">Photoshop</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-bootstrap-fill display-5 text-purple mb-2"></i>
+                        <h6 class="fw-bold mb-0">Bootstrap 5</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-filetype-py display-5 text-info mb-2"></i>
+                        <h6 class="fw-bold mb-0">Python</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-database display-5 text-danger mb-2"></i>
+                        <h6 class="fw-bold mb-0">MySql</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-github display-5 text-dark-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">GitHub</h6>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="custom-card p-3 skill-card">
+                        <i class="bi bi-hdd display-5 text-success mb-2"></i>
+                        <h6 class="fw-bold mb-0">Hardware</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="mb-5">
+            <h2 class="section-title mb-4">Mis Proyectos</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <div class="card h-100 project-card">
+                        <div class="card-img-wrapper">
+                            <img src="{% static 'img/saw.png' %}" class="card-img-top" alt="Escape del Juicio">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Escape del Juicio</h5>
+                            <p class="card-text flex-grow-1">Juego de escape room basado en la saga de Jigsaw y en los juegos clásicos de Inkagames.</p>
+                            <a href="https://github.com/jhmezzomo-hub/EscapeDelJuicio.git" class="btn btn-primary custom-btn w-100 mt-3" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-github me-2"></i>Ver en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 project-card">
+                        <div class="card-img-wrapper">
+                            <img src="{% static 'img/slither.png' %}" class="card-img-top" alt="Slither.io">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Slither.io</h5>
+                            <p class="card-text flex-grow-1">Recreación interactiva en Python del clásico juego multijugador Slither.io.</p>
+                            <a href="https://github.com/ncomin-a/Nico_lab_algoritmos_proyectos.git" class="btn btn-primary custom-btn w-100 mt-3" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-github me-2"></i>Ver en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 project-card">
+                        <div class="card-img-wrapper">
+                            <img src="{% static 'img/Pokemon.png' %}" class="card-img-top" alt="Pokemon">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Pokémon</h5>
+                            <p class="card-text flex-grow-1">Recreación de mecánicas principales del clásico juego de combate Pokémon.</p>
+                            <a href="https://github.com/ncomin-a/Trabajo-Practico-2---Lab-Algoritmos.git" class="btn btn-primary custom-btn w-100 mt-3" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-github me-2"></i>Ver en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="mb-5">
+            <h2 class="section-title mb-4">Contacto</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="custom-card p-4">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label fw-bold">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bold">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="ncomin@alumno.huergo.edu.ar" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label fw-bold">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribí tu mensaje..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary custom-btn w-100">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6 ps-md-4 d-flex flex-column justify-content-center">
+                    <h3 class="fw-bold mb-3">Redes y Canales</h3>
+                    <p class="hero-subtitle mb-4">También podés encontrarme y contactarme directamente en:</p>
+                    <div class="d-flex flex-column gap-3">
+                        <a href="https://github.com/ncomin-a" target="_blank" class="custom-card p-3 text-decoration-none d-flex align-items-center">
+                            <i class="bi bi-github fs-3 me-3 text-primary"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-body">GitHub</h6>
+                                <small class="text-muted">ncomin-a</small>
+                            </div>
+                        </a>
+                        <a href="mailto:ncomin@alumno.huergo.edu.ar" class="custom-card p-3 text-decoration-none d-flex align-items-center">
+                            <i class="bi bi-envelope-at-fill fs-3 me-3 text-primary"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-body">Email</h6>
+                                <small class="text-muted">ncomin@alumno.huergo.edu.ar</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4 text-center border-top border-secondary-subtle">
+        <div class="container">
+            <p class="mb-0 text-muted">&copy; 2026 Nicolás Comin - Laboratorio de Algoritmos y Estructuras de Datos</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function cambiarModo() {
+            const htmlElement = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const esOscuro = htmlElement.getAttribute('data-bs-theme') === 'dark';
+
+            if (esOscuro) {
+                htmlElement.setAttribute('data-bs-theme', 'light');
+                document.body.classList.remove('dark-mode');
+                if (icon) icon.className = 'bi bi-moon-stars-fill';
+            } else {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                document.body.classList.add('dark-mode');
+                if (icon) icon.className = 'bi bi-sun-fill';
+            }
+        }
+    </script>
+</body>
+</html>
