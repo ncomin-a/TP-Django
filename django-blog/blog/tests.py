@@ -1,4 +1,9 @@
-from django.test import TestCase
+from io import BytesIO
+from tempfile import TemporaryDirectory
+
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase, override_settings
+from PIL import Image
 
 from blog.models import Category, Comment, Post
 
@@ -28,3 +33,19 @@ class BlogViewsTests(TestCase):
     def test_category_exact_match(self):
         self.assertContains(self.client.get("/category/Django/"), "Hello Django")
         self.assertNotContains(self.client.get("/category/Dj/"), "Hello Django")
+
+    def test_large_image_is_resized_without_changing_its_aspect_ratio(self):
+        image_data = BytesIO()
+        Image.new("RGB", (3200, 1600), color="red").save(image_data, format="PNG")
+
+        with TemporaryDirectory() as media_root:
+            with override_settings(MEDIA_ROOT=media_root):
+                self.post.image = SimpleUploadedFile(
+                    "landscape.png",
+                    image_data.getvalue(),
+                    content_type="image/png",
+                )
+                self.post.save()
+
+                with Image.open(self.post.image.path) as uploaded_image:
+                    self.assertEqual(uploaded_image.size, (1600, 800))
